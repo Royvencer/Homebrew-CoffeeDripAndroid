@@ -10,9 +10,7 @@ class RecipeDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Recipe Details"),
-      ),
+    
       body: ListView(
         children: [
           Text(recipe.name),
