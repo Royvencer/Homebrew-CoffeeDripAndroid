@@ -73,8 +73,8 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
     
       body: ListView(
         children: [
-          Text("${currentRecipeStep.text}"),
-          Text("${stepTimeRemaining}"),
+          Text("${currentRecipeStep.text}", key: Key('current-step-text')),
+          Text("${stepTimeRemaining}", key: Key('time-remaining'),),
           Text("Steps"),
           for (RecipeStep step in remainingSteps)
             ListTile(title: Text(step.text))

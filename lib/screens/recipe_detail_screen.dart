@@ -14,10 +14,10 @@ class RecipeDetailScreen extends StatelessWidget {
       body: ListView(
         children: [
           Text(recipe.name),
-          Text("${recipe.coffeeVolumeGrams}"),
-          Text("${recipe.waterVolumeGrams}"),
+          Text("${recipe.coffeeVolumeGrams}", key: Key('recipe-coffee-volume'),),
+          Text("${recipe.waterVolumeGrams}", key: Key('recipe-water-volume'),),
           RaisedButton(
-            child: Text("Start"),
+            child: Text("Start", key: Key("start-button"),),
             onPressed: () {
               Navigator.push(
                 context,
