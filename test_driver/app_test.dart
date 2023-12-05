@@ -22,6 +22,7 @@ void main() {
     /*
     */
     test(
+        "should give us complete guide on how to make Sweet Maria's coffee recipe",
         () async {
       final recipeSelectionScreen = find.byValueKey('coffee-recipes');
       expect(await driver.getText(recipeSelectionScreen), "Coffee Recipes");
