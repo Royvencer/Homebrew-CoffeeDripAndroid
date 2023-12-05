@@ -21,7 +21,9 @@ void main() {
   group('Happy Paths', () {
     /*
     */
-    test("should give us complete guide on how to make Sweet Maria's coffee recipe", () async{
+    test(
+        "should give us complete guide on how to make Sweet Maria's coffee recipe",
+        () async {
       final recipeSelectionScreen = find.byValueKey('coffee-recipes');
       expect(await driver.getText(recipeSelectionScreen), "Coffee Recipes");
 
@@ -72,9 +74,13 @@ void main() {
       await Future.delayed(Duration(seconds: 16));
 
       final doneScreenText = find.byValueKey('done-screen-text');
-      expect(await driver.getText(doneScreenText), "enjoy your amazing handmade coffee");
+      expect(await driver.getText(doneScreenText),
+          "enjoy your amazing handmade coffee");
 
+      final doneButton = find.byValueKey('done-button');
+      await driver.tap(doneButton);
 
+      expect(await driver.getText(recipeSelectionScreen), "Coffee Recipes");
     }, timeout: Timeout.factor(2));
   }, timeout: Timeout(Duration(minutes: 5)));
 
