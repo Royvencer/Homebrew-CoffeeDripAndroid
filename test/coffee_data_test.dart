@@ -18,4 +18,12 @@ void main() {
     expect(recipes[2].name, "Texas Coffee School");
     expect(recipes[2].steps, isA<List<RecipeStep>>());
   });
+  test('loadRecipes should give back the recipes in my app', () {
+    List<CoffeeRecipe> recipes = CoffeeData.loadRecipes();
+
+    // add whatever tests help give you confidence
+    expect(recipes[1], isA<CoffeeRecipe>());
+    expect(recipes[1].name, "PT's");
+    expect(recipes[1].steps, isA<List<RecipeStep>>());
+  });
 }
