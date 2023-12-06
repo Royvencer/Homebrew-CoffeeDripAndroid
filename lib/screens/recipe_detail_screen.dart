@@ -16,7 +16,7 @@ class RecipeDetailScreen extends StatelessWidget {
           Text(recipe.name),
           Text("${recipe.coffeeVolumeGrams}", key: Key('recipe-coffee-volume'),),
           Text("${recipe.waterVolumeGrams}", key: Key('recipe-water-volume'),),
-          RaisedButton(
+          ElevatedButton(
             child: Text("Start", key: Key("start-button"),),
             onPressed: () {
               Navigator.push(

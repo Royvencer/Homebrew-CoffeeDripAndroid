@@ -37,8 +37,24 @@ CoffeeRecipe makeTestRecipe() {
   return recipe;
 }
 
+CoffeeRecipe makeTexasCoffeeSchoolRecipe() {
+  List<RecipeStep> steps = [
+    RecipeStep("Bloom coffee grounds with 100g of water", 30),
+    RecipeStep("Add 240g of water and steep coffee", 150),
+    RecipeStep("Drawdown coffee", 90),
+  ];
+  CoffeeRecipe recipe = CoffeeRecipe(
+      "Texas Coffee School",
+      24,
+      340,
+      "coarse ground coffee",
+      "The original recipe: makes one delicious cup",
+      steps);
+  return recipe;
+}
+
 List<CoffeeRecipe> getAllRecipes() {
-  return [makeSweetMariasRecipe(), makeTestRecipe()];
+  return [makeSweetMariasRecipe(), makeTestRecipe(), makeTexasCoffeeSchoolRecipe()];
 }
 
 class CoffeeData {
