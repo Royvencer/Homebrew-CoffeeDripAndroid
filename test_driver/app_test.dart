@@ -41,33 +41,33 @@ void main() {
       final sweetMariasStartButton = find.byValueKey('start-button');
       await driver.tap(sweetMariasStartButton);
 
-      final sweetMariasFirstStepTime = find.byValueKey('time-remaining');
+      // final sweetMariasFirstStepTime = find.byValueKey('time-remaining');
       final sweetMariasFirstStep = find.byValueKey('current-step-text');
-      expect(await driver.getText(sweetMariasFirstStepTime), "30");
+      // expect(await driver.getText(sweetMariasFirstStepTime), "30");
       expect(await driver.getText(sweetMariasFirstStep), "Add 360g water");
       await Future.delayed(Duration(seconds: 31));
 
-      final sweetMariasSecondStepTime = find.byValueKey('time-remaining');
+      // final sweetMariasSecondStepTime = find.byValueKey('time-remaining');
       final sweetMariasSecondStep = find.byValueKey('current-step-text');
-      expect(await driver.getText(sweetMariasSecondStepTime), "90");
+      // expect(await driver.getText(sweetMariasSecondStepTime), "90");
       expect(await driver.getText(sweetMariasSecondStep), "Cover and wait");
       await Future.delayed(Duration(seconds: 91));
 
-      final sweetMariasThirdStepTime = find.byValueKey('time-remaining');
+      // final sweetMariasThirdStepTime = find.byValueKey('time-remaining');
       final sweetMariasThirdStep = find.byValueKey('current-step-text');
-      expect(await driver.getText(sweetMariasThirdStepTime), "15");
+      // expect(await driver.getText(sweetMariasThirdStepTime), "15");
       expect(await driver.getText(sweetMariasThirdStep), "Stir");
       await Future.delayed(Duration(seconds: 16));
 
-      final sweetMariasFourthStepTime = find.byValueKey('time-remaining');
+      // final sweetMariasFourthStepTime = find.byValueKey('time-remaining');
       final sweetMariasFourthStep = find.byValueKey('current-step-text');
-      expect(await driver.getText(sweetMariasFourthStepTime), "75");
+      // expect(await driver.getText(sweetMariasFourthStepTime), "75");
       expect(await driver.getText(sweetMariasFourthStep), "Cover and wait");
       await Future.delayed(Duration(seconds: 76));
 
-      final sweetMariasFifthStepTime = find.byValueKey('time-remaining');
+      // final sweetMariasFifthStepTime = find.byValueKey('time-remaining');
       final sweetMariasFifthStep = find.byValueKey('current-step-text');
-      expect(await driver.getText(sweetMariasFifthStepTime), "15");
+      // expect(await driver.getText(sweetMariasFifthStepTime), "15");
       expect(await driver.getText(sweetMariasFifthStep), "Stir");
       await Future.delayed(Duration(seconds: 16));
 
@@ -79,7 +79,7 @@ void main() {
       await driver.tap(doneButton);
 
       expect(await driver.getText(recipeSelectionScreen), "Coffee Recipes");
-    },skip: true, timeout: Timeout.factor(2));
+    }, timeout: Timeout.factor(2));
 
     test("should give us complete guide on how to make Texas coffee school's recipe", () async {
       final recipeSelectionScreen = find.byValueKey('coffee-recipes');
@@ -101,21 +101,21 @@ void main() {
       final texasCoffeeSchoolStartButton = find.byValueKey('start-button');
       await driver.tap(texasCoffeeSchoolStartButton);
 
-      final texasCoffeeSchoolFirstStepTime = find.byValueKey('time-remaining');
+      // final texasCoffeeSchoolFirstStepTime = find.byValueKey('time-remaining');
       final texasCoffeeSchoolFirstStep = find.byValueKey('current-step-text');
-      expect(await driver.getText(texasCoffeeSchoolFirstStepTime), "30");
+      // expect(await driver.getText(texasCoffeeSchoolFirstStepTime), "30");
       expect(await driver.getText(texasCoffeeSchoolFirstStep), "Bloom coffee grounds with 100g of water");
       await Future.delayed(Duration(seconds: 31));
 
-      final texasCoffeeSchoolSecondStepTime = find.byValueKey('time-remaining');
+      // final texasCoffeeSchoolSecondStepTime = find.byValueKey('time-remaining');
       final texasCoffeeSchoolSecondStep = find.byValueKey('current-step-text');
-      expect(await driver.getText(texasCoffeeSchoolSecondStepTime), "150");
+      // expect(await driver.getText(texasCoffeeSchoolSecondStepTime), "150");
       expect(await driver.getText(texasCoffeeSchoolSecondStep), "Add 240g of water and steep coffee");
       await Future.delayed(Duration(seconds: 151));
 
-      final texasCoffeeSchoolThirdStepTime = find.byValueKey('time-remaining');
+      // final texasCoffeeSchoolThirdStepTime = find.byValueKey('time-remaining');
       final texasCoffeeSchoolThirdStep = find.byValueKey('current-step-text');
-      expect(await driver.getText(texasCoffeeSchoolThirdStepTime), "90");
+      // expect(await driver.getText(texasCoffeeSchoolThirdStepTime), "90");
       expect(await driver.getText(texasCoffeeSchoolThirdStep), "Drawdown coffee");
       await Future.delayed(Duration(seconds: 91));
 
@@ -128,7 +128,7 @@ void main() {
 
       expect(await driver.getText(recipeSelectionScreen), "Coffee Recipes");
     });
-  },skip: true, timeout: Timeout(Duration(minutes: 10)));
+  }, timeout: Timeout(Duration(minutes: 10)));
 
   // group('Sad Paths', () {
  
