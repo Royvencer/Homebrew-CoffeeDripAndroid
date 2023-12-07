@@ -38,8 +38,8 @@ class CoffeeRecipe {
     // Words to look for
     List<String> wordsToFind = [
       'fine',
-      'corase',
-      'meduim corase',
+      'coarse',
+      'Medium-coarse',
       'medium',
       'extra fine'
     ];
