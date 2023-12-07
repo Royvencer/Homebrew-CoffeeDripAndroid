@@ -51,7 +51,19 @@ class ResourceList extends StatelessWidget {
         ListTile(
           title: Text("Coffee"),
           trailing: Icon(Icons.chevron_right),
-        )
+        ),
+          ListTile(
+          title: Text("Grinders"),
+          trailing: Icon(Icons.chevron_right),
+        ),
+          ListTile(
+          title: Text("Kettles"),
+          trailing: Icon(Icons.chevron_right),
+        ),
+          ListTile(
+          title: Text("Homebrew Dripper"),
+          trailing: Icon(Icons.chevron_right),
+        ),
       ],
     );
   }
