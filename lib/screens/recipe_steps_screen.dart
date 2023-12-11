@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:homebrew_dripper/models/coffee_recipe.dart';
@@ -70,14 +71,29 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
     RecipeStep currentRecipeStep = widget.recipe.steps[currentStep];
 
     return Scaffold(
+      backgroundColor: Color(0xff4C748B),
     
       body: ListView(
         children: [
-          Text("${currentRecipeStep.text}", key: Key('current-step-text')),
-          Text("${stepTimeRemaining}", key: Key('time-remaining'),),
-          Text("Steps"),
+          Padding(padding: EdgeInsets.fromLTRB(0, 50, 0, 0)),
+          Text("${stepTimeRemaining}", style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: 'kollektif', fontSize: 96), textAlign: TextAlign.center, key: Key('time-remaining'),),
+          Padding(padding: EdgeInsets.fromLTRB(0, 30, 0, 0)),
+          Text("${currentRecipeStep.text}", style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: 'kollektif', fontSize: 24), textAlign: TextAlign.center,key: Key('current-step-text')),
+          Padding(padding: EdgeInsets.fromLTRB(0, 60, 0, 0)),
+          Container(
+          margin: EdgeInsets.all(15.0),
+          child: Text("Steps", style: TextStyle(color: Color(0xFFFFFFFF)),textAlign: TextAlign.left),
+          ),
           for (RecipeStep step in remainingSteps)
-            ListTile(title: Text(step.text))
+            ListTile(title: Text(step.text, style: TextStyle(color: Color(0xFFFFFFFF))),
+              contentPadding: EdgeInsets.symmetric(horizontal: 20),
+              dense: true,
+              trailing: Text("${Duration(seconds: step.time).toString().substring(2, 7)}", style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: 'kollektif', fontSize: 12)),
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: Color(0xFFFFFFFF), width: 3),
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+            )
         ],
       ),
     );
@@ -88,4 +104,4 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
     timer.cancel();
     super.dispose();
   }
-}
+} 
