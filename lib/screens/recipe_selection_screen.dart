@@ -66,31 +66,37 @@ class RecipeList extends StatelessWidget {
           Column(
             children: [
               ListTile(
-                title: Text(recipe.name,
-                    style: TextStyle(
-                        color: Color(0xff4C748B),
-                        fontFamily: 'Montserrat',
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500)),
+                title: Text(
+                  recipe.name,
+                  style: TextStyle(
+                    color: Color(0xff4C748B),
+                    fontFamily: 'Montserrat',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
                 trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => RecipeDetailScreen(recipe)),
+                      builder: (context) => RecipeDetailScreen(recipe),
+                    ),
                   );
                 },
               ),
-              Divider(
-                color: Color(0xff4C748B),
-                thickness: 1,
-              ),
+              if (recipe != recipes.last) // Add this condition to exclude the Divider for the last item
+                Divider(
+                  color: Color(0xff4C748B),
+                  thickness: 1,
+                ),
             ],
           ),
       ],
     );
   }
 }
+
 
 
 
