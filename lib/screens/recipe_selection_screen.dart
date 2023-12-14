@@ -7,29 +7,46 @@ class RecipeSelectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: ListView(
         children: [
-          Padding(padding: EdgeInsets.fromLTRB(0, 30, 0, 0),),
-          Text("Coffee Recipes", style: TextStyle(color: Color(0xff4C748B), fontFamily: 'kollektif' ,fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center, key: Key("coffee-recipes")),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+          ),
+          Text("Coffee Recipes",
+              style: TextStyle(
+                  color: Color(0xff4C748B),
+                  fontFamily: 'kollektif',
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+              key: Key("coffee-recipes")),
           Container(
             decoration: BoxDecoration(
-            border: Border.all(color: Color(0xff4C748B), width: 3),
-            borderRadius: BorderRadius.circular(20.0),
+              border: Border.all(color: Color(0xff4C748B), width: 3),
+              borderRadius: BorderRadius.circular(20.0),
             ),
             margin: EdgeInsets.all(20.0),
             child: RecipeList(),
           ),
-          Padding(padding: EdgeInsets.fromLTRB(0, 30, 0, 0),),
-          Text("Resources", style: TextStyle(color: Color(0xff4C748B), fontFamily: 'kollektif' ,fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+          ),
+          Text(
+            "Resources",
+            style: TextStyle(
+                color: Color(0xff4C748B),
+                fontFamily: 'kollektif',
+                fontSize: 24,
+                fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ),
           Container(
-            decoration: BoxDecoration(
-            border: Border.all(color: Color(0xff4C748B), width: 3),
-            borderRadius: BorderRadius.circular(20.0),
-            ),
-            margin: EdgeInsets.all(20.0),
-            child: ResourceList()
-          )
+              decoration: BoxDecoration(
+                border: Border.all(color: Color(0xff4C748B), width: 3),
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              margin: EdgeInsets.all(20.0),
+              child: ResourceList())
         ],
       ),
     );
@@ -48,10 +65,19 @@ class RecipeList extends StatelessWidget {
           Column(
             children: [
               ListTile(
-                title: Text(recipe.name, style: TextStyle(color: Color(0xff4C748B), fontFamily: 'Montserrat', fontSize: 14, fontWeight: FontWeight.w500)),
+                title: Text(recipe.name,
+                    style: TextStyle(
+                        color: Color(0xff4C748B),
+                        fontFamily: 'Montserrat',
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500)),
                 trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
                 onTap: () {
-                  Navigator.push(context,MaterialPageRoute(builder: (context) => RecipeDetailScreen(recipe)),);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => RecipeDetailScreen(recipe)),
+                  );
                 },
               ),
               Divider(
@@ -71,7 +97,12 @@ class ResourceList extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-          title: Text("Coffee", style: TextStyle(color: Color(0xff4C748B), fontFamily: 'Montserrat', fontSize: 14, fontWeight: FontWeight.w500)),
+          title: Text("Coffee",
+              style: TextStyle(
+                  color: Color(0xff4C748B),
+                  fontFamily: 'Montserrat',
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500)),
           trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
         ),
         Divider(
@@ -79,7 +110,12 @@ class ResourceList extends StatelessWidget {
           thickness: 1,
         ),
         ListTile(
-          title: Text("Grinders", style: TextStyle(color: Color(0xff4C748B), fontFamily: 'Montserrat', fontSize: 14, fontWeight: FontWeight.w500)),
+          title: Text("Grinders",
+              style: TextStyle(
+                  color: Color(0xff4C748B),
+                  fontFamily: 'Montserrat',
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500)),
           trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
         ),
         Divider(
@@ -87,7 +123,12 @@ class ResourceList extends StatelessWidget {
           thickness: 1,
         ),
         ListTile(
-          title: Text("Kettles", style: TextStyle(color: Color(0xff4C748B), fontFamily: 'Montserrat', fontSize: 14, fontWeight: FontWeight.w500)),
+          title: Text("Kettles",
+              style: TextStyle(
+                  color: Color(0xff4C748B),
+                  fontFamily: 'Montserrat',
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500)),
           trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
         ),
         Divider(
@@ -95,10 +136,15 @@ class ResourceList extends StatelessWidget {
           thickness: 1,
         ),
         ListTile(
-          title: Text("Homebrew Dripper", style: TextStyle(color: Color(0xff4C748B), fontFamily: 'Montserrat', fontSize: 14, fontWeight: FontWeight.w500)),
+          title: Text("Homebrew Dripper",
+              style: TextStyle(
+                  color: Color(0xff4C748B),
+                  fontFamily: 'Montserrat',
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500)),
           trailing: Icon(Icons.chevron_right, color: Color(0xff4C748B)),
         ),
       ],
     );
   }
-} 
+}
