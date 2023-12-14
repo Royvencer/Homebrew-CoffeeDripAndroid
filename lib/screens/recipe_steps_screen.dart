@@ -33,7 +33,7 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
     //set the starting value of the timer
     stepTimeRemaining = widget.recipe.steps[currentStep].time;
 
-    //make timer that ticks every one seconds
+    //make timer that ticks every one second
     timer = Timer.periodic(Duration(seconds: 1), (timer) {
       // if timer reached zero
       if (stepTimeRemaining < 1) {
@@ -72,7 +72,6 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
 
     return Scaffold(
       backgroundColor: Color(0xff4C748B),
-    
       body: ListView(
         children: [
           Padding(padding: EdgeInsets.fromLTRB(0, 50, 0, 0)),
@@ -81,17 +80,20 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
           Text("${currentRecipeStep.text}", style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: 'kollektif', fontSize: 24), textAlign: TextAlign.center,key: Key('current-step-text')),
           Padding(padding: EdgeInsets.fromLTRB(0, 60, 0, 0)),
           Container(
-          margin: EdgeInsets.all(15.0),
-          child: Text("Steps", style: TextStyle(color: Color(0xFFFFFFFF)),textAlign: TextAlign.left),
+            margin: EdgeInsets.all(15.0),
+            child: Text("Steps", style: TextStyle(color: Color(0xFFFFFFFF)),textAlign: TextAlign.left),
           ),
-          for (RecipeStep step in remainingSteps)
-            ListTile(title: Text(step.text, style: TextStyle(color: Color(0xFFFFFFFF))),
+          for (RecipeStep step in widget.recipe.steps)
+          Container( padding: EdgeInsets.all(15.0), // Adjust the padding value here
+  child: ListTile(
+              title: Text(step.text, style: TextStyle(color: Color(0xFFFFFFFF))),
               contentPadding: EdgeInsets.symmetric(horizontal: 20),
               dense: true,
               trailing: Text("${Duration(seconds: step.time).toString().substring(2, 7)}", style: TextStyle(color: Color(0xFFFFFFFF), fontFamily: 'kollektif', fontSize: 12)),
               shape: RoundedRectangleBorder(
-                side: BorderSide(color: Color(0xFFFFFFFF), width: 3),
-                borderRadius: BorderRadius.circular(20.0),
+                side: BorderSide(color: step == currentRecipeStep ? Color(0xFFFFFFFF) : Colors.transparent, width: 3),
+                borderRadius: BorderRadius.circular(12.0),
+              )
               ),
             )
         ],
