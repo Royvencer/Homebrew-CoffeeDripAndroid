@@ -21,7 +21,9 @@ void main() {
   group('Happy Paths', () {
     /*
     */
-    test("should give us complete guide on how to make Sweet Maria's coffee recipe", () async {
+    test(
+        "should give us complete guide on how to make Sweet Maria's coffee recipe",
+        () async {
       final recipeSelectionScreen = find.byValueKey('coffee-recipes');
       expect(await driver.getText(recipeSelectionScreen), "Coffee Recipes");
 
@@ -29,14 +31,19 @@ void main() {
       await driver.tap(selectSweetMaria);
 
       final sweetMariasCoffeeGrams = find.byValueKey('recipe-coffee-volume');
-      expect(await driver.getText(sweetMariasCoffeeGrams), "22");
+      expect(await driver.getText(sweetMariasCoffeeGrams),
+          "22g - finely ground coffee");
 
       final sweetMariasWaterGrams = find.byValueKey('recipe-water-volume');
-      expect(await driver.getText(sweetMariasWaterGrams), "360");
+      expect(await driver.getText(sweetMariasWaterGrams), "360g - water");
 
       //should be able to see the total time
+      final totalTime = find.byValueKey('total-Time');
+      expect(await driver.getText(totalTime), "Total: 03 : 45");
 
       //should be able to see the add 360g water step
+      final firstStep = find.byValueKey('step_0');
+      expect(await driver.getText(firstStep), "Add 360g water");
 
       final sweetMariasStartButton = find.byValueKey('start-button');
       await driver.tap(sweetMariasStartButton);
@@ -81,22 +88,32 @@ void main() {
       expect(await driver.getText(recipeSelectionScreen), "Coffee Recipes");
     }, timeout: Timeout.factor(2));
 
-    test("should give us complete guide on how to make Texas coffee school's recipe", () async {
+    test(
+        "should give us complete guide on how to make Texas coffee school's recipe",
+        () async {
       final recipeSelectionScreen = find.byValueKey('coffee-recipes');
       expect(await driver.getText(recipeSelectionScreen), "Coffee Recipes");
 
       final selectTexasCoffeeSchool = find.text("Texas Coffee School");
       await driver.tap(selectTexasCoffeeSchool);
 
-      final texasCoffeeSchoolCoffeeGrams = find.byValueKey('recipe-coffee-volume');
-      expect(await driver.getText(texasCoffeeSchoolCoffeeGrams), "24");
+      final texasCoffeeSchoolCoffeeGrams =
+          find.byValueKey('recipe-coffee-volume');
+      expect(await driver.getText(texasCoffeeSchoolCoffeeGrams),
+          "24g - coarse ground coffee");
 
-      final texasCoffeeSchoolWaterGrams = find.byValueKey('recipe-water-volume');
-      expect(await driver.getText(texasCoffeeSchoolWaterGrams), "340");
+      final texasCoffeeSchoolWaterGrams =
+          find.byValueKey('recipe-water-volume');
+      expect(await driver.getText(texasCoffeeSchoolWaterGrams), "340g - water");
 
       //should be able to see the total time
+      final totalTime = find.byValueKey('total-Time');
+      expect(await driver.getText(totalTime), "Total: 04 : 30");
 
       //should be able to see the add 360g water step
+      final firstStep = find.byValueKey('step_0');
+      expect(await driver.getText(firstStep),
+          "Bloom coffee grounds with 100g of water");
 
       final texasCoffeeSchoolStartButton = find.byValueKey('start-button');
       await driver.tap(texasCoffeeSchoolStartButton);
@@ -104,19 +121,22 @@ void main() {
       // final texasCoffeeSchoolFirstStepTime = find.byValueKey('time-remaining');
       final texasCoffeeSchoolFirstStep = find.byValueKey('current-step-text');
       // expect(await driver.getText(texasCoffeeSchoolFirstStepTime), "30");
-      expect(await driver.getText(texasCoffeeSchoolFirstStep), "Bloom coffee grounds with 100g of water");
+      expect(await driver.getText(texasCoffeeSchoolFirstStep),
+          "Bloom coffee grounds with 100g of water");
       await Future.delayed(Duration(seconds: 31));
 
       // final texasCoffeeSchoolSecondStepTime = find.byValueKey('time-remaining');
       final texasCoffeeSchoolSecondStep = find.byValueKey('current-step-text');
       // expect(await driver.getText(texasCoffeeSchoolSecondStepTime), "150");
-      expect(await driver.getText(texasCoffeeSchoolSecondStep), "Add 240g of water and steep coffee");
+      expect(await driver.getText(texasCoffeeSchoolSecondStep),
+          "Add 240g of water and steep coffee");
       await Future.delayed(Duration(seconds: 151));
 
       // final texasCoffeeSchoolThirdStepTime = find.byValueKey('time-remaining');
       final texasCoffeeSchoolThirdStep = find.byValueKey('current-step-text');
       // expect(await driver.getText(texasCoffeeSchoolThirdStepTime), "90");
-      expect(await driver.getText(texasCoffeeSchoolThirdStep), "Drawdown coffee");
+      expect(
+          await driver.getText(texasCoffeeSchoolThirdStep), "Drawdown coffee");
       await Future.delayed(Duration(seconds: 91));
 
       final doneScreenText = find.byValueKey('done-screen-text');
@@ -131,8 +151,9 @@ void main() {
   }, timeout: Timeout(Duration(minutes: 10)));
 
   group('Sad Paths', () {
-
-    test("sweet maria's: make sure that when 30 seconds have not passed then still on the same step", () async{
+    test(
+        "sweet maria's: make sure that when 30 seconds have not passed then still on the same step",
+        () async {
       final recipeSelectionScreen = find.byValueKey('coffee-recipes');
       expect(await driver.getText(recipeSelectionScreen), "Coffee Recipes");
 
@@ -140,10 +161,11 @@ void main() {
       await driver.tap(selectSweetMaria);
 
       final sweetMariasCoffeeGrams = find.byValueKey('recipe-coffee-volume');
-      expect(await driver.getText(sweetMariasCoffeeGrams), "22");
+      expect(await driver.getText(sweetMariasCoffeeGrams),
+          "22g - finely ground coffee");
 
       final sweetMariasWaterGrams = find.byValueKey('recipe-water-volume');
-      expect(await driver.getText(sweetMariasWaterGrams), "360");
+      expect(await driver.getText(sweetMariasWaterGrams), "360g - water");
 
       final sweetMariasStartButton = find.byValueKey('start-button');
       await driver.tap(sweetMariasStartButton);
@@ -157,10 +179,11 @@ void main() {
       await Future.delayed(Duration(seconds: 10));
       expect(await driver.getText(sweetMariasFirstStep), "Add 360g water");
       await Future.delayed(Duration(seconds: 6));
-      
     });
 
-    test("sweet maria's: make sure that when 90 seconds have not passed then still on the same step", () async{
+    test(
+        "sweet maria's: make sure that when 90 seconds have not passed then still on the same step",
+        () async {
       final sweetMariasSecondStep = find.byValueKey('current-step-text');
       expect(await driver.getText(sweetMariasSecondStep), "Cover and wait");
       //when 50 seconds have passed
@@ -172,7 +195,9 @@ void main() {
       await Future.delayed(Duration(seconds: 11));
     });
 
-    test("sweet maria's: make sure that when 15 seconds have not passed then still on the same step", () async{
+    test(
+        "sweet maria's: make sure that when 15 seconds have not passed then still on the same step",
+        () async {
       final sweetMariasThirdStep = find.byValueKey('current-step-text');
       expect(await driver.getText(sweetMariasThirdStep), "Stir");
       //when 10 seconds have passed
@@ -181,7 +206,9 @@ void main() {
       await Future.delayed(Duration(seconds: 6));
     });
 
-    test("sweet maria's: make sure that when 75 seconds have not passed then still on the same step", () async{
+    test(
+        "sweet maria's: make sure that when 75 seconds have not passed then still on the same step",
+        () async {
       final sweetMariasFourthStep = find.byValueKey('current-step-text');
       expect(await driver.getText(sweetMariasFourthStep), "Cover and wait");
       //when 60 seconds have passed
@@ -193,7 +220,9 @@ void main() {
       await Future.delayed(Duration(seconds: 6));
     });
 
-    test("sweet maria's: make sure that when 15 seconds have not passed then still on the same step", () async{
+    test(
+        "sweet maria's: make sure that when 15 seconds have not passed then still on the same step",
+        () async {
       final sweetMariasFifthStep = find.byValueKey('current-step-text');
       expect(await driver.getText(sweetMariasFifthStep), "Stir");
       //when 10 seconds have passed
@@ -207,53 +236,71 @@ void main() {
 
       final doneButton = find.byValueKey('done-button');
       await driver.tap(doneButton);
-      
+
       final recipeSelectionScreen = find.byValueKey('coffee-recipes');
       expect(await driver.getText(recipeSelectionScreen), "Coffee Recipes");
     });
 
-    test("Texas Coffee School: make sure that when 30 seconds have not passed then still on the same step", () async {
+    test(
+        "Texas Coffee School: make sure that when 30 seconds have not passed then still on the same step",
+        () async {
       final recipeSelectionScreen = find.byValueKey('coffee-recipes');
       expect(await driver.getText(recipeSelectionScreen), "Coffee Recipes");
 
       final selectTexasCoffeeSchool = find.text("Texas Coffee School");
       await driver.tap(selectTexasCoffeeSchool);
 
-      final texasCoffeeSchoolCoffeeGrams = find.byValueKey('recipe-coffee-volume');
-      expect(await driver.getText(texasCoffeeSchoolCoffeeGrams), "24");
+      final texasCoffeeSchoolCoffeeGrams =
+          find.byValueKey('recipe-coffee-volume');
+      expect(await driver.getText(texasCoffeeSchoolCoffeeGrams),
+          "24g - coarse ground coffee");
 
-      final texasCoffeeSchoolWaterGrams = find.byValueKey('recipe-water-volume');
-      expect(await driver.getText(texasCoffeeSchoolWaterGrams), "340");
+      final texasCoffeeSchoolWaterGrams =
+          find.byValueKey('recipe-water-volume');
+      expect(await driver.getText(texasCoffeeSchoolWaterGrams), "340g - water");
 
       final texasCoffeeSchoolStartButton = find.byValueKey('start-button');
       await driver.tap(texasCoffeeSchoolStartButton);
 
       final texasCoffeeSchoolFirstStep = find.byValueKey('current-step-text');
-      expect(await driver.getText(texasCoffeeSchoolFirstStep), "Bloom coffee grounds with 100g of water");
+      expect(await driver.getText(texasCoffeeSchoolFirstStep),
+          "Bloom coffee grounds with 100g of water");
       await Future.delayed(Duration(seconds: 15));
-      expect(await driver.getText(texasCoffeeSchoolFirstStep), "Bloom coffee grounds with 100g of water");
+      expect(await driver.getText(texasCoffeeSchoolFirstStep),
+          "Bloom coffee grounds with 100g of water");
       await Future.delayed(Duration(seconds: 10));
-      expect(await driver.getText(texasCoffeeSchoolFirstStep), "Bloom coffee grounds with 100g of water");
+      expect(await driver.getText(texasCoffeeSchoolFirstStep),
+          "Bloom coffee grounds with 100g of water");
       await Future.delayed(Duration(seconds: 6));
     });
 
-    test("Texas Coffee School: make sure that when 150 seconds have not passed then still on the same step", () async {
+    test(
+        "Texas Coffee School: make sure that when 150 seconds have not passed then still on the same step",
+        () async {
       final texasCoffeeSchoolSecondStep = find.byValueKey('current-step-text');
-      expect(await driver.getText(texasCoffeeSchoolSecondStep), "Add 240g of water and steep coffee");
+      expect(await driver.getText(texasCoffeeSchoolSecondStep),
+          "Add 240g of water and steep coffee");
       await Future.delayed(Duration(seconds: 100));
-      expect(await driver.getText(texasCoffeeSchoolSecondStep), "Add 240g of water and steep coffee");
+      expect(await driver.getText(texasCoffeeSchoolSecondStep),
+          "Add 240g of water and steep coffee");
       await Future.delayed(Duration(seconds: 40));
-      expect(await driver.getText(texasCoffeeSchoolSecondStep), "Add 240g of water and steep coffee");
+      expect(await driver.getText(texasCoffeeSchoolSecondStep),
+          "Add 240g of water and steep coffee");
       await Future.delayed(Duration(seconds: 11));
     });
 
-    test("Texas Coffee School: make sure that when 90 seconds have not passed then still on the same step", () async {
+    test(
+        "Texas Coffee School: make sure that when 90 seconds have not passed then still on the same step",
+        () async {
       final texasCoffeeSchoolThirdStep = find.byValueKey('current-step-text');
-      expect(await driver.getText(texasCoffeeSchoolThirdStep), "Drawdown coffee");
+      expect(
+          await driver.getText(texasCoffeeSchoolThirdStep), "Drawdown coffee");
       await Future.delayed(Duration(seconds: 50));
-      expect(await driver.getText(texasCoffeeSchoolThirdStep), "Drawdown coffee");
+      expect(
+          await driver.getText(texasCoffeeSchoolThirdStep), "Drawdown coffee");
       await Future.delayed(Duration(seconds: 30));
-      expect(await driver.getText(texasCoffeeSchoolThirdStep), "Drawdown coffee");
+      expect(
+          await driver.getText(texasCoffeeSchoolThirdStep), "Drawdown coffee");
       await Future.delayed(Duration(seconds: 11));
 
       final doneScreenText = find.byValueKey('done-screen-text');
@@ -268,7 +315,36 @@ void main() {
     });
   }, timeout: Timeout(Duration(minutes: 10)));
 
-  // group('Back button test', () {
- 
-  // },);
+  group(
+    'Back button test',
+    () {
+      test("Test Back button on Sweet Maria", () async {
+        final recipeSelectionScreen = find.byValueKey('coffee-recipes');
+        expect(await driver.getText(recipeSelectionScreen), "Coffee Recipes");
+
+        final selectSweetMaria = find.text("Sweet Maria's");
+        await driver.tap(selectSweetMaria);
+
+        final sweetMariasCoffeeGrams = find.byValueKey('recipe-coffee-volume');
+        expect(await driver.getText(sweetMariasCoffeeGrams),
+            "22g - finely ground coffee");
+
+        final sweetMariasWaterGrams = find.byValueKey('recipe-water-volume');
+        expect(await driver.getText(sweetMariasWaterGrams), "360g - water");
+
+        //should be able to see the total time
+        final totalTime = find.byValueKey('total-Time');
+        expect(await driver.getText(totalTime), "Total: 03 : 45");
+
+        //should be able to see the add 360g water step
+        final firstStep = find.byValueKey('step_0');
+        expect(await driver.getText(firstStep), "Add 360g water");
+
+        final sweetMariasBackButton = find.byValueKey('backButton');
+        await driver.tap(sweetMariasBackButton);
+
+        expect(await driver.getText(recipeSelectionScreen), "Coffee Recipes");
+      });
+    },
+  );
 }

@@ -40,6 +40,7 @@ class CoffeeRecipe {
       'fine',
       'coarse',
       'Medium-coarse',
+      'Medium-fine',
       'medium',
       'extra fine'
     ];
